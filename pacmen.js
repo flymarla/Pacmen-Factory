@@ -30,13 +30,16 @@ function makePac() {
     // returns an object with random values scaled {x: 33, y: 21}
     let velocity = setToRandom(10); // velocity will be between 0 and 10
     let position = setToRandom(200); // position will be between 0 and 200
-    
+    let size = setToRandom(300); // height and width will be between 0 and 300
     // Adds image to div id = game
     let game = document.getElementById('game');
     let newimg = document.createElement('img');
     newimg.style.position = 'absolute';
     newimg.src = 'Images/PacMan1.png';
-    newimg.width = 100;
+    //newimg.width = 100;
+    newimg.width = size.x;
+    //newimg.height = size.x; //only using x value to make pacman symmetrical
+
     
     // Sets position of new image of pacman
     newimg.style.left = position.x;
