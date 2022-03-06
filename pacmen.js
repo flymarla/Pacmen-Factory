@@ -54,27 +54,50 @@ function makePac() {
         velocity,
         newimg
     }
+};
+
+// Function detects collision with all walls and makes pacman bounce & chomp
+function checkCollisions(item) {
+    if(item.position.x + item.velocity.x + item.newimg.width > window.innerWidth) {
+        item.velocity.x = -item.velocity.x;
+        item.newimg.src = 'Images/PacMan3.png';
+    }
+    if(item.position.x + item.velocity.x < 0) {
+        item.velocity.x = -item.velocity.x;
+        item.newimg.src = 'Images/PacMan1.png';
+    }
+    if(item.position.y + item.velocity.y + item.newimg.height > window.innerHeight && item.velocity.x > 0) {
+        item.velocity.y = -item.velocity.y;
+        item.newimg.src = 'Images/PacMan2.png'; 
+    }
+    if(item.position.y + item.velocity.y + item.newimg.height > window.innerHeight && item.velocity.x < 0) {
+        item.velocity.y = -item.velocity.y;
+        item.newimg.src = 'Images/PacMan4.png'; 
+    }
+    if(item.position.y + item.velocity.y < 0 && item.velocity.x > 0) {
+        item.velocity.y = -item.velocity.y;
+        item.newimg.src = 'Images/PacMan2.png'; 
+    }
+    if(item.position.y + item.velocity.y < 0 && item.velocity.x < 0) {
+        item.velocity.y = -item.velocity.y;
+        item.newimg.src = 'Images/PacMan4.png'; 
+    }
 }
 
 //Function to move the pacman images
 function update() {
     //loop over pacmen array and move each one and move image in DOM
     pacMen.forEach((item) => {
-        checkCollisions(item)
+        checkCollisions(item);
         item.position.x += item.velocity.x;
         item.position.y += item.velocity.y;
         item.newimg.style.left = item.position.x;
         item.newimg.style.top = item.position.y;
+        
     })
     setTimeout(update, 20);
-}
+};
 
-
-// Function detects collision with all walls and makes pacman bounce
-function checkCollisions(item) {
-    if(item.position.x + item.velocity.x + item.newimg.width > window.innerWidth || item.position.x + item.velocity.x < 0) item.velocity.x = -item.velocity.x;
-    if(item.position.y + item.velocity.y + item.newimg.height > window.innerHeight || item.position.y + item.velocity.y < 0) item.velocity.y = -item.velocity.y;
-}
 // Function adds a new pacman to game
 function makeOne() {
     pacMen.push(makePac());
