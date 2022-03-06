@@ -9,7 +9,7 @@ This game is a factory for creating pacmen to race across the screen.
 * Game can be reset at any time by pressing the reset button.
 
 ![Yellow Pacman facing right, mouth open](/Images/PacMan1.png)
-<img src="/Images.PacMan2.png" alt="drawing" width="200" height="200"/>
+<img src="/Images/PacMan2.png" alt="drawing" width="200" height="200"/>
 ## License
 
 This project is licensed under the [MIT License](/LICENSE).
