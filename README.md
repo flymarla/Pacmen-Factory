@@ -8,3 +8,6 @@ Factory for making pacmen
 
 ![Yellow Pacman facing right, mouth open](/Images/PacMan1.png)
 
+## License
+
+This project is licensed under the [MIT License](/LICENSE).
